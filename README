@@ -1,0 +1,11 @@
+rNF-e
+
+Projeto open source para integração de sistemas feitos em Ruby com o Projeto
+Nota Fiscal Eletrônica
+
+Este projeto tem por objetivo se tornar totalmente compatível com as
+especificações descritas no "Manual de Integração - Contribuinte Padrões
+Técnicos de Comunicação", versão 4.0.1-NT2009.006 de Dezembro 2009. Este
+objetivo poderá ser alterado de acordo com possíveis atualizações das
+especificações do manual. Consulte o Portal da Nota Fiscal Eletrônica para mais
+informações: http://www.nfe.fazenda.gov.br
