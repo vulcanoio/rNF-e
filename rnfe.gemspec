@@ -17,4 +17,5 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
 
   gem.add_dependency 'savon', '>= 0.9.2'
+  gem.add_development_dependency 'soap4r', '>= 1.5.8'
 end
