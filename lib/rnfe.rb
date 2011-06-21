@@ -1,4 +1,3 @@
-require "lib/rnfe/version"
 require "lib/rnfe/nfe_status_servico2"
 
 module RNFe
