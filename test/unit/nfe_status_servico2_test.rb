@@ -3,7 +3,7 @@ require File.expand_path(File.dirname(__FILE__) + '/../test_helper')
 
 class NfeStatusServico2Test < Test::Unit::TestCase
   def setup
-    start_mockup_server
+    ServerMockup.start
   end
 
   def test_get_status
