@@ -3,7 +3,7 @@ require 'socket'
 require 'timeout'
 
 class ServerMockup < ::SOAP::RPC::StandaloneServer
-  require 'test/server_mockup/nfe_status_servico_nf2'
+  require 'test/server_mockup/nfe_status_servico2_mockup'
   CLASSES = [ServerMockup::NfeStatusServico2Mockup]
 
   def initialize(*arg)
