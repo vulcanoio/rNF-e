@@ -16,5 +16,5 @@ Gem::Specification.new do |gem|
   gem.test_files    = Dir['{test}/**/*']
   gem.require_paths = ["lib"]
 
-  gem.add_dependency 'rake', '>= 0.8.7'
+  gem.add_dependency 'savon', '>= 0.9.2'
 end
