@@ -7,6 +7,8 @@ class NfeStatusServico2
   WSDL = "wsdls/nfeStatusServico2.wsdl"
 
   class << self
+    # Check the NFe service status. Returns a hash with information about the
+    # service.
     def service_status
       request_message_body = create_message_body('43', true)
       service_response = communicate(request_message_body)
