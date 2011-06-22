@@ -64,7 +64,7 @@ class ServerMockup < ::SOAP::RPC::StandaloneServer
       @last_request_time = last_request
     end
 
-    def method_missing(method, params)
+    def method_missing(method, *params)
       @mockup_server.servants.each do |servant|
         if servant.public_methods.include?(method.to_s)
           return servant.send method, params
