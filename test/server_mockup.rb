@@ -24,25 +24,25 @@ class ServerMockup < ::SOAP::RPC::StandaloneServer
   class << self
     def start(port = 10080)
       self.stop
-      $mockup_server = ServerMockup.new('app', nil, '127.0.0.1', port)
+      @mockup_server = ServerMockup.new('app', nil, '127.0.0.1', port)
       Thread.new do
         trap(:INT) do
           server.shutdown
         end
-        $mockup_server.start
+        @mockup_server.start
       end
-      RNFe.wsdl_endpoint = $mockup_server.uri
-      $mockup_server
+      RNFe.wsdl_endpoint = @mockup_server.uri
+      @mockup_server
     end
 
     def stop(port = 10080)
-      $mockup_server ||= nil
-      if $mockup_server
-        $mockup_server.shutdown
+      @mockup_server ||= nil
+      if @mockup_server
+        @mockup_server.shutdown
         while port_open?("127.0.0.1", port)
           sleep 0.1
         end
-        $mockup_server = nil
+        @mockup_server = nil
         return true
       end
       return false
