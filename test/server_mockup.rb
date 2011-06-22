@@ -9,16 +9,24 @@ class ServerMockup < ::SOAP::RPC::StandaloneServer
   def initialize(*arg)
     super(*arg)
 
+    @servants = []
+
     CLASSES.each do |klass|
       servant = klass.new
       klass::Methods.each do |definitions|
         add_document_method(servant, *definitions)
       end
+
+      @servants << servant
     end
   end
 
   def uri
     "http://#{@host}:#{@port}/"
+  end
+
+  def servants
+    @servants
   end
 
   class << self
@@ -54,6 +62,15 @@ class ServerMockup < ::SOAP::RPC::StandaloneServer
 
     def last_request_time=(last_request)
       @last_request_time = last_request
+    end
+
+    def method_missing(method, params)
+      @mockup_server.servants.each do |servant|
+        if servant.public_methods.include?(method.to_s)
+          return servant.send method, params
+        end
+      end
+      super
     end
 
     private
